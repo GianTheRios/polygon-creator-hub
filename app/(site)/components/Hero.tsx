@@ -1,7 +1,12 @@
+import { Wordmark } from "./Wordmark";
+
 export function Hero() {
   return (
     <section id="intro" className="pt-32 pb-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
+        <div className="flex justify-center mb-6">
+          <Wordmark lightSrc="/brand/polygon-wordmark.svg" darkSrc="/brand/polygon-wordmark-dark.svg" width={180} height={40} priority />
+        </div>
         <p className="text-sm font-medium text-[color:rgb(var(--brand-700))] mb-4">
           Understanding the foundation of our shared future.
         </p>
