@@ -43,8 +43,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
-        <link rel="preload" as="image" href="/brand/polygon-wordmark.svg" />
-        <link rel="preload" as="image" href="/brand/polygon-wordmark-dark.svg" />
+        <link rel="preload" as="image" href="/Polygon_Primary_Dark.svg" />
+        <link rel="preload" as="image" href="/Polygon_Icon_White_Purple_Rn-1.svg" />
         {children}
       </body>
     </html>
