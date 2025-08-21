@@ -31,9 +31,14 @@ const isLinkNode = (v: unknown): v is LinkNode =>
   typeof v === 'object' && v !== null && '@_href' in (v as Record<string, unknown>);
 
 export async function fetchRss(url: string, limit = 6): Promise<RssItem[]> {
-  const res = await fetch(url, { next: { revalidate: 3600 } });
-  if (!res.ok) return [];
-  const xml = await res.text();
+  let xml = '';
+  try {
+    const res = await fetch(url, { next: { revalidate: 3600 } });
+    if (!res.ok) return [];
+    xml = await res.text();
+  } catch {
+    return [];
+  }
   const parser = new XMLParser({ ignoreAttributes: false });
   const data = parser.parse(xml) as ParsedXml;
   const rssItems = data.rss?.channel?.item ?? [];

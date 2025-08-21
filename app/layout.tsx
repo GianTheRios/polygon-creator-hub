@@ -43,6 +43,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
+        <a href="#intro" className="sr-only focus:not-sr-only fixed top-2 left-2 z-[100] rounded bg-white/80 dark:bg-neutral-900/80 px-3 py-1 text-sm border border-black/10 dark:border-white/10">Skip to content</a>
         <link rel="preload" as="image" href="/Polygon_Primary_Dark.svg" />
         <link rel="preload" as="image" href="/Polygon_Icon_White_Purple_Rn-1.svg" />
         {children}
