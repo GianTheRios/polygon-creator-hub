@@ -1,9 +1,4 @@
-export function ContentHub() {
-  const posts = [
-    { badge: "Technical", title: "Polygon 2.0: The Value Layer of the Internet", date: "2 days ago", featured: true },
-    { badge: "Partnership", title: "Disney, Reddit, and Meta Choose Polygon", date: "5 days ago" },
-    { badge: "Developer", title: "zkEVM Reaches 10M Transactions", date: "1 week ago" },
-  ];
+export function ContentHub({ posts }: { posts: { title: string; link: string; pubDate?: string }[] }) {
 
   const ideas = [
     { title: "zkEVM Tutorial Series", meta: "Video • Intermediate" },
@@ -21,14 +16,12 @@ export function ContentHub() {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-4">
             {posts.map((p) => (
-              <div key={p.title} className={`bg-white rounded-2xl p-6 border ${p.featured ? "border-[color:rgb(var(--brand-100))]" : "border-neutral-100"} hover:shadow-sm`}>
-                {p.featured && <span className="text-xs text-amber-600 bg-amber-50 px-2 py-1 rounded">Featured</span>}
+              <a key={p.title} href={p.link} target="_blank" rel="noopener noreferrer" className="block bg-white rounded-2xl p-6 border border-neutral-100 hover:shadow-sm">
                 <div className="mt-2">
-                  <span className="text-xs font-medium text-[color:rgb(var(--brand-700))] bg-[color:rgb(var(--brand-50))] px-2 py-1 rounded mr-2">{p.badge}</span>
-                  <h4 className="font-semibold mt-2">{p.title}</h4>
-                  <p className="text-xs text-neutral-500 mt-1">{p.date}</p>
+                  <h4 className="font-semibold mt-1">{p.title}</h4>
+                  {p.pubDate && <p className="text-xs text-neutral-500 mt-1">{new Date(p.pubDate).toLocaleDateString()}</p>}
                 </div>
-              </div>
+              </a>
             ))}
           </div>
           <div>

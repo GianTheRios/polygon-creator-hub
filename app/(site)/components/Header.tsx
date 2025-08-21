@@ -38,10 +38,10 @@ export function Header() {
     <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-black/5 z-40">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="#intro" className="flex items-center gap-3" onClick={(e)=>{e.preventDefault();scrollTo("intro");}}>
-          <div className="w-10 h-10 rounded-xl bg-[color:rgb(var(--brand-600))]" />
+          <img src="/logo-mark.svg" alt="Polygon" className="w-10 h-10 rounded-xl shadow-sm" />
           <div>
             <p className="text-sm font-semibold">Creator Hub</p>
-            <p className="text-xs text-neutral-500">by Polygon Labs</p>
+            <p className="text-xs text-neutral-500 dark:text-neutral-400">by Polygon Labs</p>
           </div>
         </Link>
         <div className="hidden md:flex items-center gap-6">
@@ -49,7 +49,7 @@ export function Header() {
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className="text-sm font-medium text-neutral-600 hover:text-neutral-900 relative"
+              className="text-sm font-medium text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:rgb(var(--brand-600))] rounded"
             >
               {item.label}
               {active === item.id && (
@@ -60,7 +60,7 @@ export function Header() {
         </div>
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <button className="rounded-full px-4 py-2 text-sm font-medium text-white bg-[color:rgb(var(--brand-700))] hover:bg-[color:rgb(var(--brand-600))]">
+          <button className="rounded-full px-4 py-2 text-sm font-medium text-white bg-[color:rgb(var(--brand-700))] hover:bg-[color:rgb(var(--brand-600))] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:rgb(var(--brand-600))]">
             Get Started
           </button>
         </div>

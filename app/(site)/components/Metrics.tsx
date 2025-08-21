@@ -1,5 +1,5 @@
 "use client";
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 
 const metrics = [
   { label: "Total Transactions", value: "5.3B+", change: "+287K today" },
@@ -20,7 +20,7 @@ export function Metrics() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-2">Real-time Polygon Network Tracker</h2>
-          <p className="text-neutral-600">Live metrics updated every block</p>
+          <p className="text-neutral-600">Live metrics (placeholder API)</p>
         </div>
 
         <div className="grid md:grid-cols-4 gap-6 mb-12">
@@ -36,6 +36,7 @@ export function Metrics() {
         <div className="bg-white rounded-2xl p-6 border border-neutral-100">
           <h3 className="text-lg font-semibold mb-4">Transaction Volume (Billions)</h3>
           <SimpleArea points={chartPoints} />
+          <MetricsBar />
         </div>
       </div>
     </section>
@@ -70,6 +71,40 @@ function SimpleArea({ points }: { points: { x: number; y: number; label?: string
       <path d={path} className="stroke-[3] fill-none" stroke={`rgb(var(--brand-600))`} />
     </svg>
   );
+}
+
+function MetricsBar() {
+  return (
+    <div className="mt-4 text-xs text-neutral-500">
+      <ClientMetrics />
+    </div>
+  );
+}
+
+function ClientMetrics() {
+  // client subcomponent
+  return (
+    <span suppressHydrationWarning>
+      <ClientFetcher />
+    </span>
+  );
+}
+
+type MetricsResponse = {
+  totalTx: number;
+  uniqueAddresses: number;
+  tvl: number;
+  gasGwei: number;
+  lastUpdated: string;
+};
+
+function ClientFetcher() {
+  const [data, setData] = useState<MetricsResponse | null>(null);
+  useEffect(() => {
+    fetch('/api/metrics').then(r => r.json()).then(setData).catch(() => {});
+  }, []);
+  if (!data) return <>Loading metrics…</>;
+  return <>Last updated {new Date(data.lastUpdated).toLocaleTimeString()}</>;
 }
 
 
