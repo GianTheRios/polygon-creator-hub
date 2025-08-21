@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* Polygon brand tokens (2025) */
+  --brand-50: 245 240 255;   /* light tint */
+  --brand-100: 235 225 255;
+  --brand-600: 130 71 229;   /* primary purple */
+  --brand-700: 108 43 217;   /* deep purple */
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-50: rgb(var(--brand-50));
+  --color-brand-100: rgb(var(--brand-100));
+  --color-brand-600: rgb(var(--brand-600));
+  --color-brand-700: rgb(var(--brand-700));
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --brand-50: 34 22 52;
+    --brand-100: 44 28 68;
+  }
+}
+
+/* Manual dark mode via .dark class on <html> */
+.dark:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --brand-50: 34 22 52;
+  --brand-100: 44 28 68;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Focus styles */
+:where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in oklab, rgb(var(--brand-600)), transparent 50%);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
