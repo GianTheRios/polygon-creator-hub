@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="py-12 px-6 border-t border-neutral-200">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-3">
-          <Logo lightSrc="/brand/polygon-mark.svg" darkSrc="/brand/polygon-mark-dark.svg" size={40} className="w-10 h-10" />
+          <Logo lightSrc="/Polygon_Icon_White_Purple_Rn-1.svg" darkSrc="/Polygon_Icon_White_Purple_Rn-1.svg" size={40} className="w-10 h-10" />
           <div>
             <p className="font-semibold">Polygon Creator Hub</p>
             <p className="text-sm text-neutral-600 dark:text-neutral-400">Build the future, together</p>

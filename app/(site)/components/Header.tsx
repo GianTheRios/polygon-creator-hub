@@ -39,7 +39,7 @@ export function Header() {
     <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-black/5 z-40">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="#intro" className="flex items-center gap-3" onClick={(e)=>{e.preventDefault();scrollTo("intro");}}>
-          <Logo lightSrc="/brand/polygon-mark.svg" darkSrc="/brand/polygon-mark-dark.svg" size={40} className="w-10 h-10" />
+          <Logo lightSrc="/Polygon_Icon_White_Purple_Rn-1.svg" darkSrc="/Polygon_Icon_White_Purple_Rn-1.svg" size={40} className="w-10 h-10" />
           <div>
             <p className="text-sm font-semibold">Creator Hub</p>
             <p className="text-xs text-neutral-500 dark:text-neutral-400">by Polygon Labs</p>
